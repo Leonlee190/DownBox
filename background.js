@@ -6,7 +6,21 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, suggest) {
 
 chrome.downloads.onCreated.addListener(function(downloadItem) {
     // console = chrome.extension.getBackgroundPage().console;
-    console.log("File name with local path = ", downloadItem.filename);
+    if(downloadItem.filename){
+        console.log("File name with local path = ", downloadItem.filename);
+    }
+    else{
+        console.log("can't get filename");
+    }
     console.log("Mime = ", downloadItem.mime);
     console.log("ID = ", downloadItem.id);
+    console.log("Start = ", downloadItem.startTime);
 });
+
+function restoreOptions(){
+    chrome.storage.sync.get({
+        'initVal' : false
+    }, function(item) {
+        document.getElementById('boxed').checked = item.initVal;
+    });
+}
