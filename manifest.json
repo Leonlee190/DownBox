@@ -12,5 +12,9 @@
   "permissions": [
    "activeTab",
    "downloads"
-   ]
+  ],
+  "background": {
+     "scripts": ["background.js"],
+     "persistent": false
+  }
 }
