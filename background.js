@@ -18,7 +18,9 @@ chrome.downloads.onCreated.addListener(function(downloadItem) {
 });
 
 chrome.storage.onChanged.addListener(function(changes, areaName){
-    console.log("new value = ", changes.newValue);
+    chrome.storage.sync.get(['sBox'], function(result){
+        console.log("new value = ", changes.newValue);
+    });
 });
 
 
