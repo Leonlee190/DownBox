@@ -17,6 +17,11 @@ chrome.downloads.onCreated.addListener(function(downloadItem) {
     console.log("Start = ", downloadItem.startTime);
 });
 
+chrome.storage.onChanged.addListener(function(changes, areaName){
+    console.log("new value = ", changes.newValue);
+});
+
+
 function restoreOptions(){
     chrome.storage.sync.get({
         'initVal' : false

@@ -1,6 +1,21 @@
 *{
   font-family: 'Roboto Mono', monospace;
-  background-color: lightgray;
+  background-color: white;
+}
+
+body{
+  width: 150px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .switch {
