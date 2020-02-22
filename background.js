@@ -1,18 +1,48 @@
-chrome.downloads.onDeterminingFilename.addListener(function(item, suggest) {
-    suggest({filename: item.filename,
-             conflict_action: 'overwrite',
-             conflictAction: 'overwrite'});
-});
+var filepath = "";
+var sStatus, dStatus, tStatus;
 
-chrome.downloads.onCreated.addListener(function(downloadItem) {
-    // console = chrome.extension.getBackgroundPage().console;
-    if(downloadItem.filename){
-        console.log("File name with local path = ", downloadItem.filename);
+chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
+  function suggest(filename, conflictAction) {
+    __suggest({
+      filename: filename,
+      conflictAction: conflictAction,
+      conflict_action: conflictAction
+    });
+  }
+
+  chrome.storage.sync.get(
+    {
+      sBox: false,
+      dBox: false,
+      tBox: false
+    },
+    function(items) {
+      console.log("Boxed = ", items.sBox);
+      console.log("Date boxed = ", items.dBox);
+      console.log("Turn off = ", items.tBox);
+
+      sStatus = items.sBox;
+      dStatus = items.dBox;
+      tStatus = items.tBox;
+
+      if (!tStatus) {
+        if (sStatus) {
+          filepath = "specific" + "/";
+          console.log("Filepath 1 = ", filepath);
+        }
+        if (dStatus) {
+          var d = new Date();
+          var month = d.getMonth() + 1; // index starts at 0, so we have to add 1
+          var year = d.getFullYear();
+
+          filepath = filepath + month + "-" + year + "/";
+          console.log("Filepath 2 = ", filepath);
+        }
+      }
     }
-    else{
-        console.log("can't get filename");
-    }
-    console.log("Mime = ", downloadItem.mime);
-    console.log("ID = ", downloadItem.id);
-    console.log("Start = ", downloadItem.startTime);
+  );
+
+  console.log("filepath 3 = ", filepath);
+  suggest(filepath + item.filename, "uniquify");
+  return;
 });

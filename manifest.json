@@ -6,16 +6,12 @@
   "version": "1.0",
 
   "browser_action": {
-   "default_icon": "logo.png",
-   "default_popup": "popup.html"
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
   },
-  "permissions": [
-   "activeTab",
-   "downloads",
-   "storage"
-  ],
+  "permissions": ["activeTab", "downloads", "storage"],
   "background": {
-     "scripts": ["background.js"],
-     "persistent": false
+    "scripts": ["background.js"],
+    "persistent": false
   }
 }

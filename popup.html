@@ -1,31 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Download Box</title>
     <script src="popup.js" type="module"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-
     <div class="container">
       <div class="sector">
         <p class="name">Boxed</p>
         <label class="switch">
-          <input type="checkbox" id="boxed" value="sBox">
+          <input type="checkbox" id="boxed" value="sBox" />
           <span class="slider round"></span>
         </label>
       </div>
 
       <div class="sector">
-        <input type="file" id="filepicker" name="fileList" webkitdirectory multiple />
+        <input
+          type="file"
+          id="filepicker"
+          name="fileList"
+          webkitdirectory
+          multiple
+        />
         <ul id="listing"></ul>
       </div>
 
       <div class="sector">
         <p class="name">Date Boxed</p>
         <label class="switch">
-          <input type="checkbox" id="date-boxed">
+          <input type="checkbox" id="date-boxed" />
           <span class="slider round"></span>
         </label>
       </div>
@@ -33,9 +41,9 @@
       <div class="sector">
         <p class="name">Turn Off</p>
         <label class="switch">
-          <input type="checkbox" id="turn-off">
+          <input type="checkbox" id="turn-off" />
           <span class="slider round"></span>
-        </label> 
+        </label>
       </div>
     </div>
   </body>
