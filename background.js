@@ -16,18 +16,3 @@ chrome.downloads.onCreated.addListener(function(downloadItem) {
     console.log("ID = ", downloadItem.id);
     console.log("Start = ", downloadItem.startTime);
 });
-
-chrome.storage.onChanged.addListener(function(changes, areaName){
-    chrome.storage.sync.get(['sBox'], function(result){
-        console.log("new value = ", changes.newValue);
-    });
-});
-
-
-function restoreOptions(){
-    chrome.storage.sync.get({
-        'initVal' : false
-    }, function(item) {
-        document.getElementById('boxed').checked = item.initVal;
-    });
-}

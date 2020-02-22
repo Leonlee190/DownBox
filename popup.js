@@ -3,29 +3,36 @@
 //     console.log("File name with local path ", downloadItem.filename)
 // });
 
-document.getElementById("filepicker").addEventListener("change", function(event) {
-    let output = document.getElementById("listing");
-    let files = event.target.files;
-  
-    for (let i=0; i<files.length; i++) {
-      let item = document.createElement("li");
-      item.innerHTML = files[i].webkitRelativePath;
-      output.appendChild(item);
-    };
-  }, false);
+function boxChecker(){
+    var specBox = document.getElementById("boxed").checked;
+    var dateBox = document.getElementById("date-boxed").checked;
+    var turnoff = document.getElementById("turn-off").checked;
 
+    chrome.storage.sync.set({
+        sBox : specBox,
+        dBox : dateBox,
+        tBox : turnoff
+    }, function(){
+        console.log("Boxes updated");
+    });
+}
 
-document.getElementById("boxed").addEventListener("change", function(event){
-    let clicked = document.querySelector('input[value="sBox"]');
+function restoreOption(){
+    chrome.storage.sync.get({
+        sBox: false,
+        dBox: false,
+        tBox: false
+    }, function(items){
+        document.getElementById("boxed").checked = items.sBox;
+        document.getElementById("date-boxed").checked = items.dBox;
+        document.getElementById("turn-off").checked = items.tBox;
+    })
+}
 
-    if(clicked.checked){
-        chrome.storage.sync.set({sBox: true}, function(){
-            console.log("Specific box is checked");
-        });
-    }
-    else{
-        chrome.storage.sync.set({sBox: false}, function(){
-            console.log("Specific box is unchecked");
-        });
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    restoreOption();
+    document.getElementById("boxed").addEventListener('click', boxChecker);
+    document.getElementById("date-boxed").addEventListener('click', boxChecker);
+    document.getElementById("turn-off").addEventListener('click', boxChecker);
+    console.log("DOM Loaded");
 });
