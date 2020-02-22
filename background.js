@@ -26,12 +26,15 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 
 chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   function suggest(filename, conflictAction) {
+      updateBox();
     __suggest({
       filename: filename,
       conflictAction: conflictAction,
       conflict_action: conflictAction
     });
   }
+
+  filepath = "";
 
   if (!tStatus) {
     if (sStatus) {
