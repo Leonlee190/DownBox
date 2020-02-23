@@ -36,4 +36,14 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("date-boxed").addEventListener("click", boxChecker);
   document.getElementById("turn-off").addEventListener("click", boxChecker);
   console.log("DOM Loaded");
+
+  chrome.browserAction.setIcon({
+    path: "logo2.png"
+  });
+});
+
+
+document.getElementById("setting").addEventListener("click", function(){
+    console.log("Clicking!");
+    chrome.browserAction.setPopup({ popup: "setting.html"});
 });

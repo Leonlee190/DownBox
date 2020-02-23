@@ -26,7 +26,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 
 chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   function suggest(filename, conflictAction) {
-      updateBox();
+    updateBox();
     __suggest({
       filename: filename,
       conflictAction: conflictAction,
@@ -56,7 +56,3 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   suggest(filepath + item.filename, "uniquify");
   return;
 });
-
-chrome.browserAction.onClicked.addListener(function(tab) {
-    console.log("CLICKED!");
- });
