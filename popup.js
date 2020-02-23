@@ -42,8 +42,16 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+function toSetting() {
+//   chrome.windows.create(
+//     {
+//       url: "setting.html",
+//       type: "popup",
+//       state: "minimized"
+//     },
+//     function(window) {}
+//   );
+    console.log("setting is clicked");
+}
 
-document.getElementById("setting").addEventListener("click", function(){
-    console.log("Clicking!");
-    chrome.browserAction.setPopup({ popup: "setting.html"});
-});
+document.getElementById("setting").addEventListener("click", toSetting());
