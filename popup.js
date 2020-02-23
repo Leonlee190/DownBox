@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function toSetting() {
-//   chrome.windows.create(
-//     {
-//       url: "setting.html",
-//       type: "popup",
-//       state: "minimized"
-//     },
-//     function(window) {}
-//   );
+  chrome.windows.create(
+    {
+      url: "setting.html",
+      type: "popup",
+      state: "minimized"
+    },
+    function(window) {}
+  );
     console.log("setting is clicked");
 }
 
