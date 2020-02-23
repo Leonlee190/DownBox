@@ -56,3 +56,7 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   suggest(filepath + item.filename, "uniquify");
   return;
 });
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+    console.log("CLICKED!");
+ });

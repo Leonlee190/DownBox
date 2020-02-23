@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Download Box",
+  "name": "DownBox",
   "description": "Extension to manage downloads in a neater way",
   "version": "1.0",
 
