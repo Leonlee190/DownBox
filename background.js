@@ -52,6 +52,9 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
     }
   }
 
+  let ext = item.mime.split('/');
+  filepath = ext[0] + '/' + filepath;
+
   console.log("filepath 3 = ", filepath);
   suggest(filepath + item.filename, "uniquify");
   return;
