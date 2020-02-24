@@ -42,10 +42,10 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
       console.log("Filepath 1 = ", filepath);
     }
     if (dStatus) {
-      var d = new Date();
-      var month = d.getMonth() + 1;
-      var day = d.getDay();
-      var year = d.getFullYear();
+      let d = new Date();
+      let month = d.getMonth() + 1;
+      let day = d.getDay();
+      let year = d.getFullYear();
 
       filepath = filepath + month + "." + day + "." + year + "/";
       console.log("Filepath 2 = ", filepath);
