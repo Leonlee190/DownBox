@@ -9,7 +9,7 @@
     "default_icon": "logo1.png",
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab", "downloads", "storage"],
+  "permissions": ["activeTab", "downloads", "storage", "tabs"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false

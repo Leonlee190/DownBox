@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById("setting").addEventListener("click", function() {
   chrome.tabs.create({
     url: "setting.html",
-    active: "true"
+    active: true
   }, function(tabs){});
   console.log("setting is clicked");
 });
