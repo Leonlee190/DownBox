@@ -50,10 +50,10 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
       filepath = filepath + month + "." + day + "." + year + "/";
       console.log("Filepath 2 = ", filepath);
     }
-  }
 
-  let ext = item.mime.split('/');
-  filepath = ext[0] + '/' + filepath;
+    let ext = item.mime.split("/");
+    filepath = ext[0] + "/" + filepath;
+  }
 
   console.log("filepath 3 = ", filepath);
   suggest(filepath + item.filename, "uniquify");
